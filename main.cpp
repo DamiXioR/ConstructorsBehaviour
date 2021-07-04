@@ -74,7 +74,7 @@ int main(){
 	CopyConstructor* tempCC = createCC();
 	CopyConstructor cC(*tempCC);
 	check(cC);
-	std::cout << "When trying to use std::move, it's using copy ctor operator: ";
+	std::cout << "When trying to use move constructor, it's using copy constructor: ";
 	CopyConstructor cC2 (std::move(*tempCC));
 	delete tempCC;
 	
@@ -82,7 +82,7 @@ int main(){
 	CopyAssignment cA;
 	CopyAssignment cA2;
 	check(cA);
-	std::cout << "When trying to use std::move, it's using copy assignment operator: ";
+	std::cout << "When trying to use move assignment operator, it's using copy assignment operator: ";
 	cA = std::move(cA2);
 
 	std::cout << "\n\nMOVE CONSTRUCTOR DECLARED BY PROGRAMMER\n\n";
@@ -96,7 +96,7 @@ int main(){
 	MoveAssignment mA;
 	MoveAssignment mA2;
 	check(mA);
-	std::cout << "When trying to use copy assignment, it's using move assignment: ";
+	std::cout << "When trying to use copy assignment operator, it's using move assignment operator: ";
 	mA = mA2;
 	
 	std::cout << "\n\nCOPY FULL DECLARED BY PROGRAMMER\n\n";
@@ -104,10 +104,10 @@ int main(){
 	CopyFull cF(*tempCF);
 	check(cF);
 
-	std::cout << "When trying to use std::move, it's using copy ctor operator: ";
+	std::cout << "When trying to use move constructor, it's using copy constructor: ";
 	CopyFull cF2 (std::move(*tempCF));
 	
-	std::cout << "When trying to use std::move, it's using copy assignment operator: ";
+	std::cout << "When trying to use move assignment operator, it's using copy assignment operator: ";
 	cF = std::move(cF2);
 
 	std::cout << "\n\nMOVE FULL DECLARED BY PROGRAMMER\n\n";
