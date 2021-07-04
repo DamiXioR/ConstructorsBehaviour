@@ -10,7 +10,7 @@
 #include "CopyAssignment.hpp"
 #include "MoveConstructor.hpp"
 #include "MoveAssignment.hpp"
-
+#include "CopyFull.hpp"
 
 template <class T>
 void check(T& object) {
@@ -97,6 +97,18 @@ int main(){
 	std::cout << "When trying to use copy assignment, it's using move assignment: ";
 	mA = mA2;
 	
+	std::cout << "\n\nCOPY FULL DECLARED BY PROGRAMMER\n\n";
+	CopyFull* tempCF = createCF();
+	CopyFull cF(*tempCF);
+	check(cF);
+
+	std::cout << "When trying to use std::move, it's using copy ctor operator: ";
+	CopyFull cF2 (std::move(*tempCF));
+	
+	std::cout << "When trying to use std::move, it's using copy assignment operator: ";
+	cF = std::move(cF2);
+
+
 	return 0;
 }
 
