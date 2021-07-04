@@ -9,6 +9,8 @@ set(SRC
 	DestructorDeclared.cpp
 	CopyConstructor.cpp
 	CopyAssignment.cpp
+	MoveConstructor.cpp
+	MoveAssignment.cpp
 )
 
 add_executable(${PROJECT_NAME} main.cpp ${SRC})

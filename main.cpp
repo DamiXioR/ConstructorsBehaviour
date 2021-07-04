@@ -8,6 +8,9 @@
 #include "DestructorDeclared.hpp"
 #include "CopyConstructor.hpp"
 #include "CopyAssignment.hpp"
+#include "MoveConstructor.hpp"
+#include "MoveAssignment.hpp"
+
 
 template <class T>
 void check(T& object) {
@@ -80,8 +83,20 @@ int main(){
 	std::cout << "When trying to use std::move, it's using copy assignment operator: ";
 	cA = std::move(cA2);
 
-
-
+	std::cout << "\n\nMOVE CONSTRUCTOR DECLARED BY PROGRAMMER\n\n";
+	MoveConstructor* tempMC = createMC();
+	MoveConstructor mC (std::move(*tempMC));
+	check(mC);
+	std::cout << "When trying to use copy constructor, it's using move constructor: ";
+	MoveConstructor mC2(mC);
+	
+	std::cout << "\n\nMOVE ASSIGNMENT DECLARED BY PROGRAMMER\n\n";
+	MoveAssignment mA;
+	MoveAssignment mA2;
+	check(mA);
+	std::cout << "When trying to use copy assignment, it's using move assignment: ";
+	mA = mA2;
+	
 	return 0;
 }
 
