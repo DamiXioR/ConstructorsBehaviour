@@ -12,6 +12,7 @@ set(SRC
 	MoveConstructor.cpp
 	MoveAssignment.cpp
 	CopyFull.cpp
+	MoveFull.cpp
 )
 
 add_executable(${PROJECT_NAME} main.cpp ${SRC})

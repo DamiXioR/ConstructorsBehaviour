@@ -11,6 +11,8 @@
 #include "MoveConstructor.hpp"
 #include "MoveAssignment.hpp"
 #include "CopyFull.hpp"
+#include "MoveFull.hpp"
+
 
 template <class T>
 void check(T& object) {
@@ -108,6 +110,17 @@ int main(){
 	std::cout << "When trying to use std::move, it's using copy assignment operator: ";
 	cF = std::move(cF2);
 
+	std::cout << "\n\nMOVE FULL DECLARED BY PROGRAMMER\n\n";
+	MoveFull* tempMF = createMF();
+	MoveFull mF (std::move(*tempMF));
+	check(mF);
+	
+	/* USING DELETED COPY CONSTRUCTOR OR COPY ASSIGN OPERATOR
+	MoveFull* tempMF2 = createMF();
+	MoveFull mF2 (std::move(*tempMF2));
+	mF2 = mF;
+	MoveFull mF3 (mF2);
+	*/
 
 	return 0;
 }
