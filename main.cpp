@@ -4,6 +4,7 @@
 
 #include "NothingDeclared.hpp"
 #include "ParameterizedConstructor.hpp"
+#include "DefaultDeclared.hpp"
 
 template <class T>
 void check(T& object) {
@@ -52,6 +53,12 @@ int main(){
 	const int parameter = 1;
 	ParameterizedConstructor pcD(parameter);
 	check(pcD);
+
+	//DEFAULT CONSTRUCTOR DECLARED
+	DefaultDeclared dD;
+	check(dD);
+
+
 
 	return 0;
 }
