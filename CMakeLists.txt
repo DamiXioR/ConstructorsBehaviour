@@ -4,6 +4,8 @@ project(ConstructorBehaviour CXX)
 
 set(SRC
 	NothingDeclared.cpp
+	ParameterizedConstructor.cpp
+	
 )
 
 add_executable(${PROJECT_NAME} main.cpp ${SRC})

@@ -3,6 +3,7 @@
 #include <type_traits>
 
 #include "NothingDeclared.hpp"
+#include "ParameterizedConstructor.hpp"
 
 template <class T>
 void check(T& object) {
@@ -46,6 +47,11 @@ int main(){
 	
 	NothingDeclared nD;
 	check(nD);
+
+	//PARAMETRIZED CONSTRUCTOR DECLARED
+	const int parameter = 1;
+	ParameterizedConstructor pcD(parameter);
+	check(pcD);
 
 	return 0;
 }
