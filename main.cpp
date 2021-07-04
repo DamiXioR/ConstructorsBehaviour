@@ -5,6 +5,8 @@
 #include "NothingDeclared.hpp"
 #include "ParameterizedConstructor.hpp"
 #include "DefaultDeclared.hpp"
+#include "DestructorDeclared.hpp"
+
 
 template <class T>
 void check(T& object) {
@@ -58,7 +60,9 @@ int main(){
 	DefaultDeclared dD;
 	check(dD);
 
-
+	//DESTRUCTOR DECLARED
+	DestructorDeclared dDestructor;
+	check(dDestructor);
 
 	return 0;
 }
