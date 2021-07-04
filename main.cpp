@@ -122,6 +122,8 @@ int main(){
 	MoveFull mF3 (mF2);
 	*/
 
+	std::cout << "\n\nCONCLUSIONS in README.md file\n\n";
+
 	return 0;
 }
 
