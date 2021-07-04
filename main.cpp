@@ -6,7 +6,8 @@
 #include "ParameterizedConstructor.hpp"
 #include "DefaultDeclared.hpp"
 #include "DestructorDeclared.hpp"
-
+#include "CopyConstructor.hpp"
+#include "CopyAssignment.hpp"
 
 template <class T>
 void check(T& object) {
@@ -46,23 +47,40 @@ void check(T& object) {
 }
 	
 int main(){
-	//NOTHING DECLARED BY PROGRAMMER
+	std::cout << "NOTHING DECLARED BY PROGRAMMER\n\n";
 	
 	NothingDeclared nD;
 	check(nD);
 
-	//PARAMETRIZED CONSTRUCTOR DECLARED
+	std::cout << "\n\nPARAMETRIZED CONSTRUCTOR DECLARED BY PROGRAMMER\n\n";
 	const int parameter = 1;
 	ParameterizedConstructor pcD(parameter);
 	check(pcD);
 
-	//DEFAULT CONSTRUCTOR DECLARED
+	std::cout << "\n\nDEFAULT CONSTRUCTOR DECLARED BY PROGRAMMER\n\n";
 	DefaultDeclared dD;
 	check(dD);
 
-	//DESTRUCTOR DECLARED
+	std::cout << "\n\nDESTRUCTOR DECLARED BY PROGRAMMER\n\n";
 	DestructorDeclared dDestructor;
 	check(dDestructor);
+	
+	std::cout << "\n\nCOPY CONSTRUCTOR DECLARED BY PROGRAMMER\n\n";
+	CopyConstructor* tempCC = createCC();
+	CopyConstructor cC(*tempCC);
+	check(cC);
+	std::cout << "When trying to use std::move, it's using copy ctor operator: ";
+	CopyConstructor cC2 (std::move(*tempCC));
+	delete tempCC;
+	
+	std::cout << "\n\nCOPY ASSIGNMENT DECLARED BY PROGRAMMER\n\n";
+	CopyAssignment cA;
+	CopyAssignment cA2;
+	check(cA);
+	std::cout << "When trying to use std::move, it's using copy assignment operator: ";
+	cA = std::move(cA2);
+
+
 
 	return 0;
 }
