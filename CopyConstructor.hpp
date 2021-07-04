@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 #include <string>
 
 class CopyConstructor {
@@ -19,7 +20,8 @@ private:
 	}
 };
 
-CopyConstructor* createCC(){
+
+inline CopyConstructor* createCC(){
 	CopyConstructor* objectCreatedWithPrivateCtor = new CopyConstructor();
 	return objectCreatedWithPrivateCtor;
 }

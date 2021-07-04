@@ -7,6 +7,8 @@ set(SRC
 	ParameterizedConstructor.cpp
 	DefaultDeclared.cpp
 	DestructorDeclared.cpp
+	CopyConstructor.cpp
+	CopyAssignment.cpp
 )
 
 add_executable(${PROJECT_NAME} main.cpp ${SRC})
